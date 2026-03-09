@@ -13,7 +13,7 @@ export default function Questionnaire({ onComplete }) {
     diagnosis: '',
     otherDisorders: '',
     meds: '',
-    bis_results: {}
+    bis_adhd_results: {}
   });
   const t = translations[lang];
 
@@ -24,7 +24,7 @@ export default function Questionnaire({ onComplete }) {
   const handleScoreChange = (id, value) => {
     setFormData(prev => ({
       ...prev,
-      bis_results: { ...prev.bis_results, [id]: parseInt(value) }
+      bis_adhd_results: { ...prev.bis_adhd_results, [id]: parseInt(value) }
     }));
   };
 
@@ -89,7 +89,6 @@ export default function Questionnaire({ onComplete }) {
         {t.clinicalItems.map((item) => (
           <div key={item.id} className='q-item-row'>
             <p className='q-question-text'>{t[item.text]}</p>
-            
             <div className='q-radio-group'>
               {t.yesNoQuestions.map((label, i) => (
                 <label key={label} className='q-radio-label'>
@@ -110,7 +109,7 @@ export default function Questionnaire({ onComplete }) {
         ))}
 
         {/* BIS-11 Scale */}
-        {/* <h2 className='q-section-title'>{t.bisTitle}</h2>
+        <h2 className='q-section-title'>{t.bisTitle}</h2>
         {t.bisItems.map((item) => (
           <div key={item.id} className='q-item-row'>
             <p className='q-question-text'>{item.text}</p>
@@ -123,10 +122,10 @@ export default function Questionnaire({ onComplete }) {
               ))}
             </div>
           </div>
-        ))} */}
+        ))}
 
         {/* ADHD-RS Scale */}
-        {/* <h2 className='q-section-title' style={{marginTop: '40px'}}>{t.adhdTitle}</h2>
+        <h2 className='q-section-title' style={{marginTop: '40px'}}>{t.adhdTitle}</h2>
         {t.adhdItems.map((item) => (
           <div key={item.id} className='q-item-row'>
             <p className='q-question-text'>{item.text}</p>
@@ -139,7 +138,7 @@ export default function Questionnaire({ onComplete }) {
               ))}
             </div>
           </div>
-        ))} */}
+        ))}
 
         <button type="submit" className='q-button'>{t.submit}</button>
       </form>
