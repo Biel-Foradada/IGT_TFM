@@ -5,13 +5,18 @@ const path = require('path');
 const cors = require('cors');
 const app = express();
 
+
+app.use(cors({
+  origin: true,
+  credentials: true,
+  methods: ['GET', 'POST', 'OPTIONS']
+}));
 app.use(express.json({ limit: '50mb' }));
-app.use(cors());
 
 const RESULTS_DIR = '/app/results';
 if (!fs.existsSync(RESULTS_DIR)) fs.mkdirSync(RESULTS_DIR, { recursive: true });
 
-app.post('/api/save', (req, res) => {
+app.post('/save', (req, res) => {
   const { filename, content } = req.body;
   const filePath = path.join(RESULTS_DIR, filename);
   
@@ -21,4 +26,4 @@ app.post('/api/save', (req, res) => {
   });
 });
 
-app.listen(3000, () => console.log('Save-API running on port 3000'));
+app.listen(3000, '0.0.0.0', () => console.log('Save-API running on port 3000'));

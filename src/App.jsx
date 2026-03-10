@@ -290,7 +290,7 @@ function App() {
     if (trial === 100) {
       const uploadData = async () => {
         try {
-          const response = await fetch("http://localhost:3000/api/save", {
+          const response = await fetch("/api/save", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ 

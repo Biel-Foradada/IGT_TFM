@@ -28,10 +28,10 @@ docker run -d -p <local_port>:80 -p 3000:3000 --env-file app.env -v <results_fol
 ```
 
 Keeping in mind the following parameters:
-    - <local_port>: This is the port where the application will be executed in the local host.
-    - <results_folder>: Path to the folder where all the JSON files of the results will be saved.
+* `<local_port>`: This is the port where the application will be executed in the local host.
+* `<results_folder>`: Path to the folder where all the JSON files of the results will be saved.
 
-To acces the test use any browser with the link (http://localhost:<local_port>) or for the version with distactions add the parameter v=2 to the link (http://localhost:<local_port>/?v=2).
+To access the test, use any browser with the link (http://localhost:<local_port>), or for the version with distactions add the parameter v=2 to the link (http://localhost:<local_port>/?v=2).
 
 
 ### Contact

@@ -10,6 +10,11 @@ RUN npm run build
 FROM nginx:stable-alpine
 RUN apk add --no-cache nodejs npm
 
+# Nginx
+FROM nginx:stable-alpine
+RUN apk add --no-cache nodejs npm
+COPY nginx.conf /etc/nginx/conf.d/default.conf 
+
 # Install the save server depencies
 WORKDIR /app
 RUN npm install express cors
