@@ -79,7 +79,11 @@ function App() {
   const [balance, setBalance] = useState(2000);
   const [trial, setTrial] = useState(0);
   const [offTaskClicks, setOffTaskClicks] = useState(0);
-  const [sessionId] = useState(() => crypto.randomUUID());
+  const [sessionId] = useState(() => {
+    const randomPart = Math.random().toString(36).substring(2, 15);
+    const timestampPart = Date.now().toString(36);
+    return `user_${randomPart}${timestampPart}`;
+  });
   const [lastResult, setLastResult] = useState(null);
   const [showNotification, setShowNotification] = useState(false);
   const [showPopupDistraction, setshowPopupDistraction] = useState(false);
